@@ -19,9 +19,14 @@
 if( ! empty( $Modules->arr_module_init['page'][ $Modules->route ]['css'] ) ):
     for ( $css = 0, $css_s = sizeof( $Modules->arr_module_init['page'][ $Modules->route ]['css'] ); $css < $css_s; $css++ ):?>
     <link rel="stylesheet" type="text/css" href="<?php echo $General->arr_general['site'] . 'app/modules/' . $Modules->arr_module_init['page'][ $Modules->route ]['css'][ $css ]['name'] . '/assets/css/' . $Modules->arr_module_init['page'][ $Modules->route ]['css'][ $css ]['type'] . '.css'?>">
-  <?php endfor;
+    <?php if(isset($Modules->template_modules)):
+        if(isset($Modules->template_modules[ $Modules->arr_module_init['page'][ $Modules->route ]['css'][ $css ]['name'] ][ 'css' ])) { ?>
+            <link rel="stylesheet" href="<?php echo $General->arr_general['site'] . 'app/templates/' . $General->arr_general['theme'] . '/modules/' . $Modules->arr_module_init['page'][ $Modules->route ]['css'][ $css ]['name'] . '/dop.css'; ?>">
+        <?php }
+    endif;
+  endfor;
 endif;
-      else:?>
+else: ?>
     <link rel="stylesheet" type="text/css" href="<?php echo ! file_exists( ASSETS_CSS . '/generation/style_generated.min.ver.' . $Modules->actual_library['actual_css_ver'] . '.css' ) ? $General->arr_general['site'] . 'app/templates/'.$General->arr_general['theme'].'css/style' :  $General->arr_general['site'] . 'storage/assets/css/generation/style_generated.min.ver.' . $Modules->actual_library['actual_css_ver']?>.css">
 <?php endif; ?>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">

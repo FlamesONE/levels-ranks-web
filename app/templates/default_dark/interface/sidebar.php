@@ -8,7 +8,7 @@
                         <?php ! empty( $_SESSION['steamid32'] ) && $General->get_js_relevance_avatar( $_SESSION['steamid32'] )?>
                         <img id="<?php echo empty( $_SESSION['steamid'] ) ? 0 : $_SESSION['steamid']?>" ondrag="return false" ondragstart="return false" src="<?php echo empty( $_SESSION['steamid'] ) ? $General->arr_general['site'].  'storage/cache/img/avatars_random/' . rand(1,30) . '_xs.jpg' : $General->getAvatar( $_SESSION['steamid64'], 1 )?>"></a>
                     <div class="user-details">
-                        <span class="user_name"><?php echo empty( $_SESSION['steamid'] ) ? $Translate->get_translate_phrase('_Hero_without_name') : action_text_clear( action_text_trim( (empty($General->checkName( $_SESSION['steamid64'] ))) ? $Auth->user_auth[0]['name'] : $General->checkName( $_SESSION['steamid64'] ), 17 ) )?></span>
+                        <span class="user_name"><?php echo action_text_clear( action_text_trim( (empty($General->checkName( $_SESSION['steamid64'] ))) ? $Auth->user_auth[0]['name'] : $General->checkName( $_SESSION['steamid64'] ), 17 ) )?></span>
                         <?php if( ! empty( $_SESSION['steamid'] ) ):?>
                             <?php if( ! empty( $Modules->arr_user_info ) ):
                             for ( $i5 = 0, $arr_user_info_c = sizeof( $Modules->arr_user_info ); $i5 < $arr_user_info_c; ++$i5 ):?>

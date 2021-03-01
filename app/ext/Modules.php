@@ -68,6 +68,12 @@ class Modules {
 
     /**
      * @since 0.2
+     * @var array
+     */
+    public $template_modules = [];
+
+    /**
+     * @since 0.2
      * @var int
      */
     public $array_ranks_pack_count = 0;
@@ -180,6 +186,11 @@ class Modules {
         // Сканирование папки с модулями.
         $this->scan_templates = array_diff( scandir( TEMPLATES, 1 ), array( '..', '.', 'disabled' ) );
 
+        $this->template_modules = $this->get_cache_template_modules();
+
+        // Сканирование дополнительных модулей в шаблоне
+        (file_exists(TEMPLATES . $General->arr_general['theme'] . '/modules/')) && $this->get_template_modules();
+
         // Подсчёт количества модулей.
         $this->array_templates_count = sizeof( $this->scan_templates );
 
@@ -211,6 +222,39 @@ class Modules {
 
         $_SESSION['page_redirect'] = $this->route;
     }
+
+    // Хз зачем я создал эту функцию, просто для получения кеша определенных модулей
+    public function get_cache_template_modules()
+    {
+        if(file_exists(SESSIONS . 'templates_modules_cache.php'))
+            return require SESSIONS . 'templates_modules_cache.php';
+        return $this->get_template_modules();
+    }
+
+    // Добавление стилей для каждого стиля модуля в шаблоне (Да, по тупому, да и похрен)
+    public function get_template_modules()
+    {
+        $scan = array_diff( scandir( TEMPLATES . $this->General->arr_general['theme'] . '/modules/', 1 ), array( '..', '.', 'disabled' ) );
+        if(!empty($scan) && $scan != array_keys($this->template_modules))
+        {
+            $result = [];
+            foreach ($scan as $key => $val)
+            {
+                if(file_exists(TEMPLATES . $this->General->arr_general['theme'] . '/modules/' . $scan[ $key ] . '/dop.css'))
+                    $result[ $scan[ $key ] ]['css'] = 1;
+
+                if(file_exists(TEMPLATES . $this->General->arr_general['theme'] . '/modules/' . $scan[ $key ] . '/dop.js'))
+                    $result[ $scan[ $key ] ]['js'] = 1;
+            }
+
+            file_put_contents( SESSIONS . 'templates_modules_cache.php', '<?php return '.var_export_min( $result ).";" );
+
+            $this->template_modules = $result;
+
+            return $result;
+        }
+        return $this->template_modules;
+    }
     
     // Добавление шаблонов в отдельное кеширование
     public function get_templates_init()
@@ -239,9 +283,8 @@ class Modules {
     {
         //Цикл для добавления роутов исходя из страниц модулей
         foreach ($this->arr_module_init['page'] as $key => $val)
-        {
             $this->Router->map('GET', '/'.$key.'/', $key, $key);
-        }
+
         return;
     }
 
@@ -310,6 +353,8 @@ class Modules {
                 for($i = 0; $i < sizeof($note); $i++)
                     $this->General->sendNote($note[$i]['text'], $note[$i]['status'] ?? 'success', 3);
             }
+            unlink(SESSIONS . 'templates_modules_cache.php');
+
             $this->action_clear_style_cache();
             
             header("Refresh:3");

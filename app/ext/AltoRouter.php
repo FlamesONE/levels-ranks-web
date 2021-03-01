@@ -61,7 +61,7 @@ class AltoRouter
         $path = $this->basePath;
         $replace = str_replace($path, "", $server);
         $match = explode("/", $replace);
-        return $match[1] ?? 'home';
+        return $match[1];
     }
 
     /**

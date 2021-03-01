@@ -9,7 +9,11 @@
 if( ! empty( $Modules->arr_module_init['page'][ $Modules->route ]['js'] ) ):
     for ( $js = 0, $js_s = sizeof( $Modules->arr_module_init['page'][ $Modules->route ]['js'] ); $js < $js_s; $js++ ):?>
         <script src="<?php echo $General->arr_general['site'] . 'app/modules/' . $Modules->arr_module_init['page'][ $Modules->route ]['js'][ $js ]['name'] . '/assets/js/' . $Modules->arr_module_init['page'][ $Modules->route ]['js'][ $js ]['type'] . '.js'?>"></script>
-  <?php endfor;
+    <?php if(isset($Modules->template_modules)):
+    if(isset($Modules->template_modules[ $Modules->arr_module_init['page'][ $Modules->route ]['js'][ $css ]['name'] ][ 'js' ])) { ?>
+        <script src="<?php echo $General->arr_general['site'] . 'app/templates/' . $General->arr_general['theme'] . '/modules/' . $Modules->arr_module_init['page'][ $Modules->route ]['js'][ $css ]['name'] . '/dop.js'; ?>"></script>
+    <?php }
+    endif;endfor;
 endif;
       else:?>
     <script src="<?php echo ! file_exists( ASSETS_JS . '/generation/app_generated.min.ver.' . $Modules->actual_library['actual_js_ver'] . '.js' ) ? $General->arr_general['site'] . 'storage/assets/js/app' :  $General->arr_general['site'] . 'storage/assets/js/generation/app_generated.min.ver.' . $Modules->actual_library['actual_js_ver']?>.js"></script>
