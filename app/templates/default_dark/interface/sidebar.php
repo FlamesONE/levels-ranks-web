@@ -41,7 +41,7 @@
         </div>
         <ul class="sidebar-menu <?php echo !isset($_SESSION['user_admin']) && 'non-auth'; ?>">
             <li class="tooltip-js <?php $Modules->route == 'home' && print 'sidebar-active'?>" data-tooltip-js="home">
-                <a href="<?php echo $General->arr_general['site'] ?>/home">
+                <a href="<?php echo $General->arr_general['site'] ?>home">
                     <div class="sidebar-icon">
                         <?php $General->get_icon('zmdi', 'home', null )?>
                     </div>
@@ -57,7 +57,7 @@
                 // Цикл -> Счёт количества
                 for ( $_d = 0, $_c = sizeof( $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'] ); $_d < $_c; $_d++ ):?>
                     <li class="tooltip-js <?php $Modules->route == str_replace('?page=','',$Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'][ $_d ]['href']) ? print 'sidebar-active' : false ?>" data-tooltip-js="<?php print $d."-".$_d;?>">
-                        <a href="<?php echo $General->arr_general['site'] ?>/<?php echo $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['page']?>"
+                        <a href="<?php echo $General->arr_general['site'] ?><?php echo $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['page']?>"
                             <?php ( $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'][ $_d ]['open_new_tab'] == true ) ? print 'target="_blank"' : false?>>
                             <div class="sidebar-icon">
                                 <?php $General->get_icon( $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'][ $_d ]['icon_group'], $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'][ $_d ]['icon'], $Modules->array_modules[ $Modules->arr_module_init['sidebar'][ $d ] ]['sidebar'][ $_d ]['icon_category'] )?>
