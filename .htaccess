@@ -5,4 +5,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !\.
 RewriteRule ^(.*) %{REQUEST_URI}/ [R=301,L]
-RewriteRule !.(gif|jpg|php|png|ico)$ index.php
+RewriteRule !.(gif|jpg|png|ico)$ index.php
