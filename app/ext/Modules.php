@@ -234,6 +234,8 @@ class Modules {
     // Добавление стилей для каждого стиля модуля в шаблоне (Да, по тупому, да и похрен)
     public function get_template_modules()
     {
+        (!file_exists(TEMPLATES . $this->General->arr_general['theme'] . '/modules/')) && die;
+        
         $scan = array_diff( scandir( TEMPLATES . $this->General->arr_general['theme'] . '/modules/', 1 ), array( '..', '.', 'disabled' ) );
         if(!empty($scan) && $scan != array_keys($this->template_modules))
         {
