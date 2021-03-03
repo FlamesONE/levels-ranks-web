@@ -32,7 +32,7 @@
             <div class="check"><input class='btn' name="db_check" type="submit" value="<?php echo $options['language'] == 'EN' ? 'Check' : 'Проверить'?>"></div>
         </div>
         <div class="db_right">
-                <img src="../../../../app/page/custom/install/img/db.png">
+                <img src="app/page/custom/install/img/db.png">
                 <div class="sidebar_name"><?php echo $options['language'] == 'EN' ? 'Take data from' : 'Данные брать из'?> databases.cfg</div>
                 <?php if( ! empty( $db_check ) && $db_check == 1):?><div class="sidebar_name ERROR"><?php echo $options['language'] == 'EN' ? 'CONNECT ERROR' : 'НЕТУ ПОДКЛЮЧЕНИЯ К ВАШЕЙ БАЗЕ ИЛИ НЕТУ ТАБЛИЦЫ'?></div><?php endif?>
         </div>

@@ -8,40 +8,13 @@
  * @license GNU General Public License Version 3
  */
 
-// задаём основную кодировку страницы.
-header('Content-Type: text/html; charset=utf-8');
-
 // Отключаем показ ошибок.
-error_reporting(0);
+error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 
 // Ограничиваем время выполнения скрипта.
 set_time_limit(3);
-
-// Нахожение в пространстве LR.
-define('IN_LR', true);
-
-// Директория содержащая дополнительные блоки вэб-приложения.
-define('PAGE_CUSTOM', '../../../../app/page/custom/');
-
-// Директория с основными конфигурационными файлами.
-define('INCLUDES', '../../../../app/includes/');
-
-// Директория с CSS шаблонами.
-define('ASSETS_CSS', '../../../../storage/assets/css/');
-
-// Директория с JS библиотеками.
-define('ASSETS_JS', '../../../../storage/assets/js/');
-
-// Директория с основными кэш-файлами.
-define('SESSIONS', '../../../../storage/cache/sessions/');
-
-// Директория содержащая графические кэш-файлы.
-define('CACHE', '../../../../storage/cache/');
-
-// Регистраниция основных функций.
-require INCLUDES . 'functions.php';
 
 (!empty($_GET['code']) && !empty($_GET['description'])) && exit(require PAGE_CUSTOM . '/error/index.php');
 
@@ -89,12 +62,12 @@ substr( sprintf( '%o', fileperms( ASSETS_CSS ) ), -4) !== '0777' && get_iframe( 
 
 // Проверка прав доступа на ассеты - JS ( 0777 )
 substr( sprintf( '%o', fileperms( ASSETS_JS ) ), -4) !== '0777' && get_iframe( '002','Не установлены права доступа 777 на директорию :: /storage/assets/js/' );
+
 // Проверка на существование файла с настройками
 if ( ! file_exists( SESSIONS . '/options.php' ) ):
     $options['theme'] = 'default';
     $options['enable_css_cache'] = 0;
     $options['enable_js_cache'] = 0;
-
     $options['graphics_container'] = 'stretch';
     $options['disable_sidebar_change'] = 0;
     $options['disable_palettes_change'] = 0;
@@ -108,9 +81,6 @@ endif;
 
 // Проверка на существование файла с базой данных
 ! file_exists( SESSIONS . '/db.php' ) && file_put_contents( SESSIONS . '/db.php', '<?php return []; ' );
-
-// Создание/возобновление сессии.
-session_start();
 
 // Получение информации из конфигурационного файла.
 $options = require SESSIONS . '/options.php';
@@ -261,6 +231,9 @@ if( empty( $db ) && isset( $_POST['db_check'] ) ) {
 
     $mysqli = new mysqli( $_POST['HOST'], $_POST['USER'], $_POST['PASS'], $_POST['DATABASE'], $_POST['PORT'] );
 
+    if(mysqli_connect_errno())
+        exit('<h2>Connect failed: '.mysqli_connect_error().'</h2>');
+
     if ( empty( $_POST['TABLE'] ) ):
         if( $_POST['STATS'] == 'LevelsRanks'):
             $db_table = 'lvl_base';
@@ -372,7 +345,7 @@ if( empty( $db ) && isset( $_POST['db_check'] ) ) {
 <link rel="stylesheet" href="<?php echo '//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0] ?>/storage/assets/css/style.css">
 <link rel="stylesheet" href="<?php echo '//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0] ?>/app/page/custom/install/assets/css/style.css">
 <style>
-    :root <?php echo str_replace( '"', '', str_replace( '",', ';', file_get_contents_fix ( '../../../..//app/templates/default/colors.json' ) ) )?>
+    :root <?php echo str_replace( '"', '', str_replace( '",', ';', file_get_contents_fix ( 'app/templates/default/colors.json' ) ) )?>
 </style>
 <body>
 <div class="container-fluid">
@@ -402,7 +375,7 @@ elseif ( empty( $options['animations'] ) && ! is_int ( $options['animations'] ) 
 else:
     header_fix( '//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0] );
     die();
-endif?>
+endif ?>
 </div>
 </div>
 </body>

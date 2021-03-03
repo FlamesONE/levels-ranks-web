@@ -238,8 +238,8 @@ class Db {
      * @return array                 Массив с настройками.
      */
     private function get_db_options() {
-        $db = file_exists( SESSIONS . '/db.php' ) ? require SESSIONS . '/db.php' : header( 'Location: ' . get_url(2) . '/app/page/custom/install/index.php' );
-        return empty( $db ) ? header( 'Location: ' . get_url(2) . '/app/page/custom/install/index.php' ) : $db;
+        $db = file_exists( SESSIONS . '/db.php' ) ? require SESSIONS . '/db.php' : exit(require 'app/page/custom/install/index.php');
+        return empty( $db ) ?  exit(require 'app/page/custom/install/index.php') : $db;
     }
 
     /**

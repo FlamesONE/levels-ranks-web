@@ -195,8 +195,8 @@ class General {
      * @return array                 Массив с настройками.
      */
     public function get_default_options() {
-        $options = file_exists( SESSIONS . '/options.php' ) ? require SESSIONS . '/options.php' : header( 'Location: ' . get_url(2) . '/app/page/custom/install/index.php' );
-        return empty( $options ) ? header( 'Location: ' . get_url(2) . '/app/page/custom/install/index.php' ) : $options;
+        $options = file_exists( SESSIONS . '/options.php' ) ? require SESSIONS . '/options.php' : exit(require 'app/page/custom/install/index.php') );
+        return empty( $options ) ? exit(require 'app/page/custom/install/index.php') : $options;
     }
 
     /**

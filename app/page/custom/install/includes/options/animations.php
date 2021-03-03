@@ -6,7 +6,7 @@
             <button type="submit" name="animations_on">
                 <div class="animation_mp4">
                     <video loop="" muted="" autoplay="">
-                        <source src="../../../../app/page/custom/install/img/sidebar_anim.mp4" type="video/webm">
+                        <source src="app/page/custom/install/img/sidebar_anim.mp4" type="video/webm">
                     </video>
                 </div>
                 <div class="sidebar_name"><?php echo $options['language'] == 'EN' ? 'On' : 'Включены'?></div></button>
@@ -15,7 +15,7 @@
             <button type="submit" name="animations_off">
                 <div class="animation_mp4">
                     <video loop="" muted="" autoplay="">
-                        <source src="../../../../app/page/custom/install/img/sidebar_no_anim.mp4" type="video/webm">
+                        <source src="app/page/custom/install/img/sidebar_no_anim.mp4" type="video/webm">
                     </video>
                 </div>
                 <div class="sidebar_name"><?php echo $options['language'] == 'EN' ? 'Off' : 'Выключены'?></div></button>
