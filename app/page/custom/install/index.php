@@ -74,6 +74,7 @@ if ( ! file_exists( SESSIONS . '/options.php' ) ):
     $options['graphics.sidebar_blur'] = 0;
     $options['graphics.blocks_blur'] = 0;
     $options['background_image'] = 'null';
+    $options['auth_cock'] = 0;
     $options['session_check'] = 1;
     $options['avatars_cache_time'] = 259200;
     file_put_contents(SESSIONS . '/options.php', '<?php return ' . var_export_min( $options ) . ";\n");

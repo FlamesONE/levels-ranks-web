@@ -108,6 +108,29 @@ class Auth {
 
         // Выход пользователя из аккаунта.
         isset( $_GET["auth"] ) && $_GET["auth"] == 'logout' && require 'app/includes/auth/steam.php';
+
+        ( $General->arr_general['auth_cock'] == 1 && !empty($_SESSION) && empty($_COOKIE['session']) ) && $this->check_cookie();
+
+        ( $General->arr_general['auth_cock'] == 1 && empty($_SESSION) && !empty($_COOKIE['session']) ) && $this->auth_cookie();
+
+        if( $General->arr_general['auth_cock'] == 0 && !empty( $_COOKIE['session'] ) )
+            unset($_COOKIE['session']);
+    }
+
+    // Запись в куки данных о сессии
+    private function check_cookie()
+    {
+        foreach ($_SESSION as $key => $val)
+        {
+            setcookie("session[".$key."]", $val, strtotime('+1 day'));
+        }
+    }
+
+    // Авторизация пользователя с помощью куки
+    private function auth_cookie()
+    {
+        $_SESSION = $_COOKIE['session'];
+        refresh();
     }
 
     /**

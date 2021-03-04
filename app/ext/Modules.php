@@ -221,6 +221,8 @@ class Modules {
         ! empty( $checkroute ) && empty( $this->arr_module_init['page'][ $this->route ] ) && get_iframe( '009', 'Данная страница не существует' );
 
         $_SESSION['page_redirect'] = $this->route;
+
+        $this->check_copy();
     }
 
     // Хз зачем я создал эту функцию, просто для получения кеша определенных модулей
@@ -228,7 +230,6 @@ class Modules {
     {
         if(file_exists(SESSIONS . 'templates_modules_cache.php'))
             return require SESSIONS . 'templates_modules_cache.php';
-        return $this->get_template_modules();
     }
 
     // Добавление стилей для каждого стиля модуля в шаблоне (Да, по тупому, да и похрен)
@@ -501,6 +502,13 @@ class Modules {
 
         // Удаляем файл с генерируемыми JS библиотекой.
         file_exists( $cache_files['js_cache'] ) && unlink( $cache_files['js_cache'] );
+    } 
+
+    private function check_copy()
+    {
+        $get = file_get_contents_fix(PAGE . "footer.php");
+        if(!strpos($get, "levels-ranks-web"))
+            exit(get_iframe("Ой", 'Удалять копирайты нельзя!'));
     }
 
     /**

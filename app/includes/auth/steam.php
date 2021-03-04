@@ -58,6 +58,7 @@ if ( ! empty( $_GET["auth"] ) && $_GET["auth"] == 'login' ) {
 if ( ! empty( $_GET["auth"] ) && $_GET["auth"] == 'logout' ) {
     session_unset();
     session_destroy();
+    setcookie('session', null, 1);
     header('Location: ' . $this->General->arr_general['site']);
     if ( ! headers_sent() ) {?>
         <script type="text/javascript">window.location.href="<?php echo $this->General->arr_general['site'] ?>";</script>

@@ -238,7 +238,7 @@ class Db {
      * @return array                 Массив с настройками.
      */
     private function get_db_options() {
-        $db = file_exists( SESSIONS . '/db.php' ) ? require SESSIONS . '/db.php' : exit(require 'app/page/custom/install/index.php');
+        $db = file_exists( SESSIONS . '/db.php' ) ? require SESSIONS . '/db.php' : null;
         return empty( $db ) ?  exit(require 'app/page/custom/install/index.php') : $db;
     }
 

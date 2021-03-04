@@ -82,7 +82,7 @@ class Graphics {
         $this->Router        = $Router;
 
         (empty($Modules->arr_module_init['page'][ $Modules->route ]) && !isset($_GET['auth'])) && get_iframe("404", "Oopss...");
-
+        
         // Подгрузка данных из модулей которые не относятся к интерфейсу и должны быть получены до начала рендера страницы.
         for ( $module_id = 0, $c_mi = sizeof( $Modules->arr_module_init['page'][ $Modules->route ]['data'] ); $module_id < $c_mi; $module_id++ ):
             $file = MODULES . $Modules->arr_module_init['page'][ $Modules->route ]['data'][ $module_id ] . '/forward/data.php';
