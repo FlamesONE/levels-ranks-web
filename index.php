@@ -142,8 +142,10 @@ $General        = new General ( $Db );
 // Импортирование класса с роутингом
 $Router         = new AltoRouter;
 
+empty( $General->arr_general['site'] ) && $General->arr_general['site'] = '//' . preg_replace('/^(https?:)?(\/\/)?(www\.)?/', '', $_SERVER['HTTP_REFERER']);
+
 //Добавление корневого роута
-$Router->setBasePath('/'.substr(strrchr( (substr('//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0], -1) == '/') ? mb_substr('//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0], 0, -1) : '//' . $_SERVER["SERVER_NAME"] . explode('/app/',$_SERVER['REQUEST_URI'])[0]  , "/"), 1));
+$Router->setBasePath('/'.substr(strrchr( (substr($General->arr_general['site'], -1) == '/') ? mb_substr($General->arr_general['site'], 0, -1) : $General->arr_general['site']  , "/"), 1));
 
 // Создание экземпляра класса работающего с модулями.
 $Modules        = new Modules ( $General, $Translate, $Notifications, $Router );

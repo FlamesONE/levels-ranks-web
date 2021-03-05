@@ -131,6 +131,10 @@
                 <input onclick="set_options_data(this.id,'')" class="border-checkbox" type="checkbox" name="session_check" id="session_check" <?php $General->arr_general['session_check'] === 1 && print 'checked'?>>
                 <label class="border-checkbox-label" for="session_check"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Session_check')?></label>
             </div>
+            <div class="input-form">
+                <input onclick="set_options_data(this.id,'css')" class="border-checkbox" type="checkbox" name="auth_cock" id="auth_cock" <?php $General->arr_general['auth_cock'] === 1 && print 'checked'?>>
+                <label class="border-checkbox-label" for="auth_cock">Сохранение данных в куки ( НЕ БЕЗОПАСНО )</label>
+            </div>
         </div>
     </div>
 </div>
