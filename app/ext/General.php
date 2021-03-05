@@ -196,7 +196,7 @@ class General {
      */
     public function get_default_options() {
         $options = file_exists( SESSIONS . '/options.php' ) ? require SESSIONS . '/options.php' : null;
-        return empty( $options ) ? exit(require 'app/page/custom/install/index.php') : $options;
+        return empty( $options['animations'] ) ? exit(require 'app/page/custom/install/index.php') : $options;
     }
 
     /**
