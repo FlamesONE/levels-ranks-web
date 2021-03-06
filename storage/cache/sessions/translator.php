@@ -780,7 +780,6 @@ return array (
     '_Point' =>
         array (
             'EN' => 'Points',
-			'EN' => 'Pontos',
             'RU' => 'Очки',
             'UA' => 'Поінти',
             'LT' => 'Taškai',
