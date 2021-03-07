@@ -145,7 +145,7 @@ $Router         = new AltoRouter;
 empty( $General->arr_general['site'] ) && $General->arr_general['site'] = '//' . preg_replace('/^(https?:)?(\/\/)?(www\.)?/', '', $_SERVER['HTTP_REFERER']);
 
 //Добавление корневого роута
-$Router->setBasePath('/'.substr(strrchr( (substr($General->arr_general['site'], -1) == '/') ? mb_substr($General->arr_general['site'], 0, -1) : $General->arr_general['site']  , "/"), 1));
+$Router->setBasePath( parse_url($General->arr_general['site'], PHP_URL_PATH));
 
 // Создание экземпляра класса работающего с модулями.
 $Modules        = new Modules ( $General, $Translate, $Notifications, $Router );

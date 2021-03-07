@@ -10,9 +10,9 @@
 
 use app\modules\module_page_profiles\ext\Player;
 
-$Router->map( 'GET|POST', '/profiles/[:id]/', 'profiles' );
-$Router->map( 'GET|POST', '/profiles/[:id]/[i:sid]/', 'profiles' );
-$Router->map( 'GET|POST', '/profiles/[:id]/[i:sid]/[i:search]/', 'profiles' );
+$Router->map( 'GET|POST', 'profiles/[:id]/', 'profiles' );
+$Router->map( 'GET|POST', 'profiles/[:id]/[i:sid]/', 'profiles' );
+$Router->map( 'GET|POST', 'profiles/[:id]/[i:sid]/[i:search]/', 'profiles' );
 
 $Map = $Router->match();
 
