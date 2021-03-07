@@ -199,9 +199,9 @@ class Modules {
 
         $this->route = ($Router->match()['target'] ?? $Router->SearchRoute());
 
-        $generalsite = '/'.substr(strrchr( (substr($General->arr_general['site'], -1) == '/') ? mb_substr($General->arr_general['site'], 0, -1) : $General->arr_general['site']  , "/"), 1) . '/' ?? '';
+        $basename = parse_url($General->arr_general['site'], PHP_URL_PATH);
 
-        ($generalsite == $_SERVER['REQUEST_URI']) && $this->route = 'home';
+        (empty( $basename ) && empty( $this->route ) || $_SERVER['REQUEST_URI'] == '/') && $this->route = 'home';
 
         // Библиотека актуальности.
         $this->actual_library = $this->get_actual_library();
