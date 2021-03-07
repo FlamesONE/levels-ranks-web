@@ -58,7 +58,7 @@ class AltoRouter
     public function SearchRoute()
     {
         $server = $_SERVER['REQUEST_URI'];
-        $replace = substr($server, sizeof($this->basePath));
+        $replace = substr($server, strlen($this->basePath));
         $match = explode("/", $replace);
         return $match[0];
     }
