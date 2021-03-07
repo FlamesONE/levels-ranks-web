@@ -201,7 +201,7 @@ class Modules {
 
         $basename = parse_url($General->arr_general['site'], PHP_URL_PATH);
 
-        (empty( $basename ) && empty( $this->route ) || $_SERVER['REQUEST_URI'] == '/') && $this->route = 'home';
+        (empty( $basename ) && empty( $this->route ) || $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == $basename) && $this->route = 'home';
 
         // Библиотека актуальности.
         $this->actual_library = $this->get_actual_library();
