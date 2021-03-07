@@ -58,10 +58,9 @@ class AltoRouter
     public function SearchRoute()
     {
         $server = $_SERVER['REQUEST_URI'];
-        $path = $this->basePath;
-        $replace = str_replace($path, "", $server);
+        $replace = substr($server, sizeof($this->basePath));
         $match = explode("/", $replace);
-        return $match[1];
+        return $match[0];
     }
 
     /**
@@ -249,7 +248,6 @@ class AltoRouter
                 $regex = $this->compileRoute($route);
                 $match = preg_match($regex, $requestUrl, $params) === 1;
             }
-
             if ($match) {
                 if ($params) {
                     foreach ($params as $key => $value) {
