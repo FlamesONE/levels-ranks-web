@@ -60,7 +60,7 @@ class General {
 
             $search = substr( $_POST['_steam_id'], 0, 7) === "STEAM_0" ? str_replace("STEAM_0", "STEAM_1", $_POST['_steam_id'] ) : $_POST['_steam_id'];
 
-            header( 'Location: ' . $this->arr_general['site'] . '/profiles/' . $search . '/0/1/' );
+            header( 'Location: ' . $this->arr_general['site'] . 'profiles/' . $search . '/0/1/' );
             exit;
         }
 
