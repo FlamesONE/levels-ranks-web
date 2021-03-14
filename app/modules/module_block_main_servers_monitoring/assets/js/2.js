@@ -1,7 +1,7 @@
 if (servers != 0) {
     $.ajax({
         type: 'POST',
-        url: domain+"/app/modules/module_block_main_servers_monitoring/includes/ServerJS.php",
+        url: domain+"/app/modules/module_block_main_servers_monitoring/includes/js_controller.php",
         data: ({data: servers}),
         dataType: 'json',
         global: false,
