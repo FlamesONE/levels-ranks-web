@@ -455,7 +455,7 @@ class Lk_module{
 			 	$post['user'],
 			 	'_AdminPay', 
 			 	['course'=>$this->Translate->get_translate_module_phrase('module_page_lk_impulse','_AmountCourse'),'amount'=> $new_balance,'module_translation'=>'module_page_lk_impulse'],
-			 	'?page=lk&section=payments#p'.$params['order'],
+			 	'lk/?section=payments#p'.$params['order'],
 			 	'money' );
 		}
 		$params = [
@@ -626,7 +626,7 @@ class Lk_module{
 					$this->message(LangValReplace($this->Translate->get_translate_module_phrase('module_page_lk_impulse','_GatwayOff'),['name'=>'PayPal']),'error');
 					$this->LKRegPay($order,$post,'PayPal');
 					$this->message('<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_xclick">
-									  <input type="hidden" name="business" value="'.$data[0]['shop_id'].'"><input type="hidden" name="notify_url" value="'.$this->https().get_url(2).'?page=lk&gateway=paypal"><input type="hidden" name="item_name" value="'.$desc.'"><input type="hidden" name="item_number" value="'.$lk_sign.'">
+									  <input type="hidden" name="business" value="'.$data[0]['shop_id'].'"><input type="hidden" name="notify_url" value="'.$this->https().get_url(2).'lk/?gateway=paypal"><input type="hidden" name="item_name" value="'.$desc.'"><input type="hidden" name="item_number" value="'.$lk_sign.'">
 									  <input type="hidden" name="amount" value="'.$post['amount'].'"><input type="hidden" name="currency_code" value="'.$data[0]['secret_key_1'].'"><input id="punsh" type="submit" name="submit"></form>','');
 			case 'qiwi':
 				if(empty($data[0]['status']))
@@ -870,6 +870,6 @@ class Lk_module{
 			}
 
     		$_SESSION['search'] = $infoUser;
-    		$this->location('?page=lk&section=search');
+    		$this->location('lk/?section=search');
 		}
 }

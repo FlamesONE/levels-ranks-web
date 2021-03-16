@@ -84,14 +84,14 @@
                         <?php foreach ( $usage as $key ):?>
                             <tr>
                                 <?php if( $General->arr_general['avatars'] != 0 ) {?>
-                                    <th class="text-right tb-avatar pointer" <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>?page=profiles&profile=<?php echo $key['pay_auth'] ?>&search=1' "<?php } ?>><img class="rounded-circle" id="<?php echo con_steam32to64($key['pay_auth']) ?>"<?php $i  < '20' ? print 'src' : print 'data-src'?>="
+                                    <th class="text-right tb-avatar pointer" <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>profiles/<?php echo $key['pay_auth'] ?>?search=1' "<?php } ?>><img class="rounded-circle" id="<?php echo con_steam32to64($key['pay_auth']) ?>"<?php $i  < '20' ? print 'src' : print 'data-src'?>="
                                     <?php if ( $General->arr_general['avatars'] == 1){ echo $General->getAvatar(con_steam32to64($key['pay_auth']), 2);
                                     } elseif( $General->arr_general['avatars'] == 2) {
                                             echo 'storage/cache/img/avatars_random/' . rand(1,30) . '_xs.jpg';
                                     }?>"></th>
                                 <?php } ?>
-                                <th class="text-left pointer" <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>?page=profiles&profile=<?php echo $key['pay_auth'] ?>&search=1' "<?php } ?>>
-                                    <a <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>href="<?php echo $General->arr_general['site'] ?>?page=profiles&profile=<?php echo $key['pay_auth'] ?>&search=1"<?php } ?>><?php echo action_text_clear( action_text_trim($LK->LkGetUserData($key['pay_auth'])[0]['name'], 13) )?></a>
+                                <th class="text-left pointer" <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>profiles/<?php echo $key['pay_auth'] ?>?search=1' "<?php } ?>>
+                                    <a <?php if ($Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>href="<?php echo $General->arr_general['site'] ?>profiles/<?php echo $key['pay_auth'] ?>?search=1"<?php } ?>><?php echo action_text_clear( action_text_trim($LK->LkGetUserData($key['pay_auth'])[0]['name'], 13) )?></a>
                                 </th>
                                 <th class="text-left"><?php echo $key['pay_data'] ?></th>
                                 <th class="text-left"><img src="app/modules/module_page_lk_impulse/assets/gateways/<?php echo mb_strtolower($key['pay_system'])?>.svg"></th>

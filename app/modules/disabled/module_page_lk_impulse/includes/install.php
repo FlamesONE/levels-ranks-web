@@ -79,7 +79,7 @@ if( isset( $_POST['table_install'] ) ) {
         foreach($sql as $key){
             $Db->query('lk', $Db->db_data['lk'][0]['USER_ID'], $Db->db_data['lk'][0]['DB_num'], $key);
         }
-        header("Location: ".get_url(2)."?page=lk&section=gateways");
+        header("Location: ".get_url(2)."lk/?section=gateways");
 }
 ?>
 <!doctype html>
@@ -89,7 +89,7 @@ if( isset( $_POST['table_install'] ) ) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Добро пожаловать в мастер установки LR!</title>
 </head>
-<link rel="stylesheet" href="storage/assets/css/themes/mainstream_white/style.css">
+<link rel="stylesheet" href="<?php echo $General->arr_general['site'] ?>app/templates/<?php echo $General->arr_general['theme'] ?>/assets/css/style.css">
 <style>
     :root <?php echo str_replace( ',', ';', str_replace( '"', '', file_get_contents_fix ( 'storage/assets/css/themes/mainstream_white/palettes/dark_mode_palette.json' ) ) )?>
 </style>

@@ -23,6 +23,8 @@ use app\ext\Notifications;
 
 use app\ext\Translate;
 
+use app\ext\AltoRouter;
+
 class Basefunction{
 
 	public $kassa;
@@ -35,13 +37,16 @@ class Basefunction{
 	public $Modules;
 	public $Notifications;
 	public $Translate;
+	public $Router;
 
 	public function __construct() {
 		$this->db =  new Db;
         $this->Translate = new Translate;
         $this->Notifications = new Notifications( $this->Translate, $this->db );
 		$this->General = new General( $this->db );
-		$this->Modules = new Modules( $this->General, $this->Translate, $this->Notifications );
+		$this->Router = new AltoRouter;
+		empty( $this->General->arr_general['site'] ) && $this->General->arr_general['site'] = '//' . preg_replace('/^(https?:)?(\/\/)?(www\.)?/', '', $_SERVER['HTTP_REFERER']);
+		$this->Modules = new Modules( $this->General, $this->Translate, $this->Notifications, $this->Router );
 	}
 
 	/**

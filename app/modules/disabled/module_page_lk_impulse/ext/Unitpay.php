@@ -50,7 +50,7 @@ class Unitpay extends Basefunction{
 								 		 con_steam64to32($key['steamid']), 
 								 		 '_GetDonat', 
 								 		 ['course'=>$this->Translate->get_translate_module_phrase('module_page_lk_impulse','_AmountCourse'),'amount'=> $post['AMOUNT'],'module_translation'=>'module_page_lk_impulse'],
-								 		 '?page=lk&section=payments#p'.$this->decod[1], 
+								 		 'lk/?section=payments#p'.$this->decod[1], 
 								 		 'money'
 								 );
 							 }
@@ -58,7 +58,7 @@ class Unitpay extends Basefunction{
 								 	$this->decod[3], 
 								 	'_YouPay', 
 								 	['course'=>$this->Translate->get_translate_module_phrase('module_page_lk_impulse','_AmountCourse'),'amount'=> $params['orderSum'],'module_translation'=>'module_page_lk_impulse'],
-								 	'?page=lk&section=payments#p'.$this->decod[1], 
+								 	'lk/?section=payments#p'.$this->decod[1], 
 								 	'money'
 							);
 			                $result = array('result' => array('message' => 'OK'));
