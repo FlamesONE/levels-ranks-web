@@ -12,13 +12,12 @@ use app\modules\module_page_profiles\ext\Player;
 
 $Router->map( 'GET|POST', 'profiles/[:id]/', 'profiles' );
 $Router->map( 'GET|POST', 'profiles/[:id]/[i:sid]/', 'profiles' );
-$Router->map( 'GET|POST', 'profiles/[:id]/[i:sid]/[i:search]/', 'profiles' );
 
 $Map = $Router->match();
 
 $server_id = $Map['params']['sid'] ?? 0;
 $profile = $Map['params']['id'];
-$search = $Map['params']['search'] ?? 1;
+$search = intval( $_GET['search'] ?? 0 );
 
 empty( $Map ) && get_iframe("404", "Похоже, URL введен хреново");
 
