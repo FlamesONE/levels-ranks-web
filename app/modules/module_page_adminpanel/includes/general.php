@@ -52,7 +52,7 @@
                 </select>
             </div>
             <?php $palettes = $Modules->scan_templates; ?>
-            <div class="input-form"><div class="input_text">Выбор шаблона сайта</div>
+            <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Template')?></div>
                 <select class="select" name="theme" onChange="set_options_data_select( getAttribute('name'), value )">
                     <option style="display:none" value="<?php echo $General->arr_general['theme']?>"><?php echo $General->arr_general['theme']?></option>
                     <?php foreach ($Modules->scan_templates as $key => $val): ?>
@@ -133,7 +133,7 @@
             </div>
             <div class="input-form">
                 <input onclick="set_options_data(this.id,'css')" class="border-checkbox" type="checkbox" name="auth_cock" id="auth_cock" <?php $General->arr_general['auth_cock'] === 1 && print 'checked'?>>
-                <label class="border-checkbox-label" for="auth_cock">Сохранение данных в куки ( НЕ БЕЗОПАСНО )</label>
+                <label class="border-checkbox-label" for="auth_cock"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Cockie')?></label>
             </div>
         </div>
     </div>

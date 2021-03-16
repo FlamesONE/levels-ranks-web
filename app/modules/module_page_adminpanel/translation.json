@@ -807,5 +807,13 @@
   "_MJS":{
     "EN": "Own JS library:",
     "RU": "Собственная JS библиотека:"
+  },
+  "_Cockie":{
+    "EN": "Storing data in cookies (NOT SECURE)",
+    "RU": "Сохранение данных в куки ( НЕ БЕЗОПАСНО )"
+  },
+  "_Template":{
+    "EN": "Choose template",
+    "RU": "Выберете шаблон"
   }
 }
