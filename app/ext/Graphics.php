@@ -140,7 +140,7 @@ class Graphics {
      */
     public function get_css_background_image() {
         if ( ! empty( $this->General->arr_general['background_image'] ) && $this->General->arr_general['background_image'] != 'null' ) {
-            return 'body { background-image: url(./storage/cache/img/global/backgrounds/' . $this->General->arr_general["background_image"] . ')} ';
+            return 'body { background-image: url('.$this->General->arr_general["site"].'storage/cache/img/global/backgrounds/' . $this->General->arr_general["background_image"] . ')} ';
         }
     }
 
