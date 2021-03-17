@@ -2,7 +2,7 @@
     <section class="sidebar">
         <div class="user-sidebar-block">
             <div class="user-info">
-                <a href="<?php echo empty( $_SESSION['steamid32'] ) ? $General->arr_general['steam_only_authorization'] == 1 ? '?auth=login' : '#login' : $General->arr_general['site'] . 'profiles/' . $_SESSION['steamid'] . '/0/1/'?>">
+                <a href="<?php echo empty( $_SESSION['steamid32'] ) ? $General->arr_general['steam_only_authorization'] == 1 ? '?auth=login' : '#login' : $General->arr_general['site'] . 'profiles/' . $_SESSION['steamid'] . '/0/?search=1/'?>">
                     <?php ! empty( $_SESSION['steamid32'] ) && $General->get_js_relevance_avatar( $_SESSION['steamid32'] )?>
                     <img id="<?php echo empty( $_SESSION['steamid'] ) ? 0 : $_SESSION['steamid']?>" ondrag="return false" ondragstart="return false" src="<?php echo empty( $_SESSION['steamid'] ) ? $General->arr_general['site'].  'storage/cache/img/avatars_random/' . rand(1,30) . '_xs.jpg' : $General->getAvatar( $_SESSION['steamid64'], 1 )?>"></a>
                 <div class="user-details">
