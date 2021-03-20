@@ -161,7 +161,7 @@ class General {
      * @return string                   Выводит итог проверки.
      */
     public function checkName( $profile ) {
-        $url = $this->arr_general['site'] . CACHE . 'img/avatars/' . $profile . '.json';
+        $url = CACHE . 'img/avatars/' . $profile . '.json';
         if ( file_exists( $url ) ) {
             $file = json_decode(file_get_contents($url), true);
             return $file['name'];
