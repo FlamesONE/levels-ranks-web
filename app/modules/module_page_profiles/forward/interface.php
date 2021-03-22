@@ -23,8 +23,8 @@
 				<select onChange="window.location.href=this.value">
 					<option style="display:none" value="" disabled selected><?php echo $Player->found[  $Player->server_group  ]['name_servers']?></option>
 					<?php for ( $b = 0, $_c = sizeof( $Player->found ); $b < $_c; $b++ ) { if( ! empty( $Player->found_fix[ $b ] ) ){ ?>
-					<option value="<?php echo set_url_section( get_url( 2 ), 'server_group', $Player->found_fix[$b]['server_group'] )?>">
-						<a href="<?php echo set_url_section( get_url( 2 ), 'server_group', $Player->found_fix[$b]['server_group'] )?>"><?php echo $Player->found_fix[$b]['name_servers']?></a>
+					<option value="<?php echo $General->arr_general['site'] ?>profiles/<?php echo con_steam32to64( $Player->get_steam_32() ) ?>/<?php echo $Player->found_fix[$b]['server_group'] ?>">
+						<a href="<?php echo $General->arr_general['site'] ?>profiles/<?php echo con_steam32to64( $Player->get_steam_32() ) ?>/<?php echo $Player->found_fix[$b]['server_group'] ?>"><?php echo $Player->found_fix[$b]['name_servers']?></a>
 					</option>
 					<?php }} ?>
 				</select>
@@ -41,7 +41,7 @@
 					<a href="<?php $Player->found[  $Player->server_group  ]['steam'] == 1 && print 'https://steamcommunity.com/profiles/' . con_steam32to64( $Player->get_steam_32() )?>" target="_blank"><img id="<?php $General->arr_general['avatars'] == 1 && print con_steam32to64(  $Player->get_steam_32()  )?>"class="rounded-circle avatar" data-src="<?php echo $General->getAvatar( con_steam32to64( $Player->get_steam_32()  ), 1)?>"></a>
 					<div class="name"><?php echo action_text_clear( action_text_trim( $Player->get_name(), 17 ) )?></div>
 					<?php if( $Player->found[ $Player->server_group ]['DB_mod'] != 'RankMeKento' ):?>
-					<img class="rank-img" src="<?php echo $General->arr_general['site'] ?>/storage/cache/img/ranks/<?php echo $Player->found[  $Player->server_group  ]['ranks_pack'] . '/' . $Player->get_rank()?>.png">
+					<img class="rank-img" src="<?php echo $General->arr_general['site'] ?>storage/cache/img/ranks/<?php echo $Player->found[  $Player->server_group  ]['ranks_pack'] . '/' . $Player->get_rank()?>.png">
 					<div class="rank"><?php echo $Translate->get_translate_phrase( $Player->get_rank(), 'ranks_' . $Player->found[  $Player->server_group  ]['ranks_pack'] )?></div>
 					<?php endif?>
 					<div class="country"><?php echo $Player->geo; ?></div>
