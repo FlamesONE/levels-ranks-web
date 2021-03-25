@@ -29,8 +29,15 @@ function file_get_contents_fix( $file ) {
  * @param  string $url      Переадрисация по URL.
  */
 function header_fix( $url ) {
-    echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
-    echo '<noscript><meta http-equiv="refresh" content="0;url=' . $url . '" /></noscript>';
+    if ( ! headers_sent() )
+    {
+        echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
+        echo '<noscript><meta http-equiv="refresh" content="0;url=' . $url . '" /></noscript>';
+    }
+    else
+    {
+        header("Location: ".$url);
+    }
 }
 
 /**
