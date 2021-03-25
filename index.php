@@ -13,8 +13,8 @@ header('Content-Type: text/html; charset=utf-8');
 
 // Отключаем вывод ошибок.
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 
 // Ограничиваем время выполнения скрипта.
 set_time_limit(4);
