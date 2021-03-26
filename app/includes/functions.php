@@ -83,7 +83,7 @@ function var_export_min($var, $return = true) {
             $toImplode[] = var_export( $key, true ).'=>'.var_export_min( $value, true );
         }
         $code = 'array('.implode(',', $toImplode).')';
-        if ($return) return str_replace( [ ')', 'array (', 'array(' ], [ ']', '[', '[' ],  $code );
+        if ($return) return $code;
         else echo $code;
     } else {
         return var_export($var, $return);
@@ -100,7 +100,7 @@ function var_export_min($var, $return = true) {
  * @return  string            Вывод содержимого.
  */
 function var_export_opt( $var, $return = true ) {
-        return str_replace( [ ')', 'array (', 'array(' ], [ ']', '[', '[' ], var_export( $var, $return ) );
+        return var_export( $var, $return );
 }
 
 /**
