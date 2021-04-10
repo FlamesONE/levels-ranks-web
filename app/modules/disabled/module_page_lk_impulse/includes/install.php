@@ -91,7 +91,7 @@ if( isset( $_POST['table_install'] ) ) {
 </head>
 <link rel="stylesheet" href="<?php echo $General->arr_general['site'] ?>app/templates/<?php echo $General->arr_general['theme'] ?>/assets/css/style.css">
 <style>
-    :root <?php echo str_replace( ',', ';', str_replace( '"', '', file_get_contents_fix ( 'storage/assets/css/themes/mainstream_white/palettes/dark_mode_palette.json' ) ) )?>
+    :root <?php echo str_replace( ',', ';', str_replace( '"', '', file_get_contents_fix ( 'app/templates/'.$General->arr_general['theme'].'/colors.json' ) ) )?>
 </style>
 <style>
     .badge {
