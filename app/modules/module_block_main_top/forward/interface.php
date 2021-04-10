@@ -2,7 +2,7 @@
 /**
  * @author Anastasia Sidak <m0st1ce.nastya@gmail.com>
  *
- * @link https://steamcommunity.com/profiles/76561198038416053
+ * @link https://steamcommunity.comprofiles/76561198038416053
  * @link https://github.com/M0st1ce
  *
  * @license GNU General Public License Version 3
@@ -37,13 +37,13 @@
                         $data_paste[ $d ] = $data['module_block_main_top'][ $d ];
                         for ( $dd = 0; $dd < $count; $dd++ ) {
                             $General->get_js_relevance_avatar( $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ) : $data_paste[ $d ][ $dd ]['steam'] )?>
-                            <tr class="pointer" onclick="location.href = '<?php echo $General->arr_general['site'] ?>/profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ) : $data_paste[ $d ][ $dd ]['steam']?>/<?php echo $d ?>';">
+                            <tr class="pointer" onclick="location.href = '<?php echo $General->arr_general['site'] ?>profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ) : $data_paste[ $d ][ $dd ]['steam']?>/<?php echo $d ?>';">
                                 <th class="text-center"><?php echo $dd+1 ?></th>
                                 <?php if( $General->arr_general['avatars'] != 0 ) {?>
                                     <th class="text-right"><img class="rounded-circle" id="<?php if ( $General->arr_general['avatars'] == 1){ echo con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] );} ?>" data-src="<?php echo $General->getAvatar( con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ), 2 )?>"></th>
                                 <?php }?>
                                 <th class="text-left tb-name"><a
-                                            href="<?php echo $General->arr_general['site'] ?>/profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ) : $data_paste[ $d ][ $dd ]['steam']?>/<?php echo $d ?>"><?php echo action_text_clear( action_text_trim($data_paste[ $d ][ $dd ]['name'], 15) )?></a>
+                                            href="<?php echo $General->arr_general['site'] ?>profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $data_paste[ $d ][ $dd ]['steam'] ) : $data_paste[ $d ][ $dd ]['steam']?>/<?php echo $d ?>"><?php echo action_text_clear( action_text_trim($data_paste[ $d ][ $dd ]['name'], 15) )?></a>
                                 </th>
                                 <th class="text-center"><?php echo number_format($data_paste[ $d ][ $dd ]['value'], 0, '.', ' ') ?></th>
                                 <?php if( $Db->statistics_table[ $d ]['DB_mod'] != 'RankMeKento' ):?><th class="text-center"><img

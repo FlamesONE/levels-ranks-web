@@ -2,7 +2,7 @@
     /**
      * @author Anastasia Sidak <m0st1ce.nastya@gmail.com>
      *
-     * @link https://steamcommunity.com/profiles/76561198038416053
+     * @link https://steamcommunity.comprofiles/76561198038416053
      * @link https://github.com/M0st1ce
      *
      * @license GNU General Public License Version 3
@@ -50,10 +50,10 @@
                 <tbody><?php for ( $sz_i = 0, $sz = sizeof( $res ); $sz_i < $sz; $sz_i++ ):
                     $General->get_js_relevance_avatar( $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $res[$sz_i]['steam'] ) : $res[$sz_i]['steam'] )?>
                     <tr class="pointer"
-                        <?php if ( $Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>/profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $res[$sz_i]['steam'] ) : $res[$sz_i]['steam']?>/<?php echo $server_group ?>';"<?php } ?>>
+                        <?php if ( $Modules->array_modules['module_page_profiles']['setting']['status'] == '1'){ ?>onclick="location.href = '<?php echo $General->arr_general['site'] ?>profiles/<?php print $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $res[$sz_i]['steam'] ) : $res[$sz_i]['steam']?>/<?php echo $server_group ?>';"<?php } ?>>
                         <th class="text-center"><?php echo ++$page_num_min ?></th>
                         <?php if( ! empty( $General->arr_general['avatars'] ) ):?><th class="text-right tb-avatar"><img class="rounded-circle" id="<?php $General->arr_general['avatars'] === 1 && print con_steam32to64( $res[ $sz_i ]['steam'] )?>"<?php echo $sz_i < '20' ? 'src' : 'data-src'?>="<?php echo $General->getAvatar( con_steam32to64( $res[ $sz_i ]['steam'] ), 2 )?>"></th><?php endif?>
-                        <th class="table-text text-left tb-name"><a <?php $Modules->array_modules['module_page_profiles']['setting']['status'] === 1 && print sprintf('href="%s/profiles/%s/%d"', $General->arr_general['site'], $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $res[$sz_i]['steam'] ) : $res[$sz_i]['steam'], $server_group )?>><?php echo action_text_clear( action_text_trim($res[$sz_i]['name'], 16) )?></a></th>
+                        <th class="table-text text-left tb-name"><a <?php $Modules->array_modules['module_page_profiles']['setting']['status'] === 1 && print sprintf('href="%sprofiles/%s/%d"', $General->arr_general['site'], $General->arr_general['only_steam_64'] === 1 ? con_steam32to64( $res[$sz_i]['steam'] ) : $res[$sz_i]['steam'], $server_group )?>><?php echo action_text_clear( action_text_trim($res[$sz_i]['name'], 16) )?></a></th>
                         <th class="text-center"><?php echo number_format( $res[ $sz_i ]['value'], 0, '.', ' ' ) ?></th>
                         <?php if( $res_data[ $server_group ]['statistics'] != 'RankMeKento' ):?><th class="text-center table-text"><img <?php echo sprintf('%s="../storage/cache/img/ranks/%s/%d', $sz > 18 ? 'src' :'data-src', $Db->statistics_table[ $server_group ]['ranks_pack'], empty( $res[ $sz_i ]['rank'] ) ? (int) 00 : $res[ $sz_i ]['rank'] )?>.png"></th><?php endif?>
                         <th class="text-center tb-death"><?php echo number_format( (int) $res[ $sz_i ]['kills'], 0, '.', ' ' )?></th>
