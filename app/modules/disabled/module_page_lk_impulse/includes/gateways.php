@@ -84,7 +84,7 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway_edit" value="<?php echo $_GET['geteway_edit']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Purse')?></div><input name="shopid" value="<?php echo $Gateway[0]['shop_id']?>" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?>:</div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?>" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=webmoney</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=webmoney</div></div>
                    <div class="input-form">
 		                <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
 		                <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -94,7 +94,7 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway_edit" value="<?php echo $_GET['geteway_edit']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Purse')?></div><input name="shopid" value="<?php echo $Gateway[0]['shop_id']?>" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?></div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?> "></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=yandexmoney</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=yandexmoney</div></div>
                      <div class="input-form">
                         <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
                         <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -104,7 +104,7 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway_edit" value="<?php echo $_GET['geteway_edit']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_PublicKey')?>:</div><input name="secret1" value="<?php echo $Gateway[0]['secret_key_1']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?>:</div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?>"></div>
-                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=qiwi</div></div>
+                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=qiwi</div></div>
                     <div class="input-form">
 		                <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
 		                <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -114,7 +114,7 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway_edit" value="<?php echo $_GET['geteway_edit']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_PublicKey')?>:</div><input name="secret1" value="<?php echo $Gateway[0]['secret_key_1']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?>:</div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?>"></div>
-                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=unitpay</div></div>
+                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=unitpay</div></div>
                     <div class="input-form">
                         <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
                         <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -124,7 +124,7 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway_edit" value="<?php echo $_GET['geteway_edit']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_BusinessAccount')?>:</div><input name="shopid" value="<?php echo $Gateway[0]['shop_id']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ISOCourse')?> (<a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a>)</div><input name="secret1" value="<?php echo $Gateway[0]['secret_key_1']?>"></div>
-                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=paypal</div></div>
+                   <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=paypal</div></div>
                     <div class="input-form">
                         <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
                         <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -141,7 +141,7 @@ $GatewaysArrayList = [
                          <option value="UAH" <?php if($Gateway[0]['secret_key_1'] == 'UAH')print'selected' ?>>UAH</option>
                      </select>
                     </div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=interkassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=interkassa</div></div>
                    <div class="input-form">
 		                <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
 		                <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -152,7 +152,7 @@ $GatewaysArrayList = [
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Indetificator')?></div><input name="shopid" value="<?php echo $Gateway[0]['shop_id']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #1</div><input name="secret1" value="<?php echo $Gateway[0]['secret_key_1']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #2</div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?>"></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway =robokassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway =robokassa</div></div>
                    <div class="input-form">
 		                <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
 		                <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -163,7 +163,7 @@ $GatewaysArrayList = [
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Indetificator')?></div><input name="shopid" value="<?php echo $Gateway[0]['shop_id']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #1</div><input name="secret1" value="<?php echo $Gateway[0]['secret_key_1']?>"></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #2</div><input name="secret2" value="<?php echo $Gateway[0]['secret_key_2']?>"></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=freekassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=freekassa</div></div>
                    <div class="input-form">
                         <input class="border-checkbox" type="checkbox" name="status" id="status" <?php $Gateway[0]['status'] && print 'checked';?>>
                         <label class="border-checkbox-label" for="status"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ActGateways')?></label>
@@ -194,21 +194,21 @@ $GatewaysArrayList = [
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Purse')?></div><input name="shopid" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?>:</div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=webmoney</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=webmoney</div></div>
                    
                 <?php break;
                 case 'yandexmoney':?>
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Purse')?></div><input name="shopid" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?></div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=yandexmoney</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=yandexmoney</div></div>
                    
                 <?php break; 
                  case 'qiwi':?>
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_PublicKey')?>:</div><input name="secret1" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?>:</div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=qiwi</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=qiwi</div></div>
                  <?php break; 
                  case 'interkassa':?>
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">
@@ -221,7 +221,7 @@ $GatewaysArrayList = [
                          <option value="UAH">UAH</option>
                      </select>
                     </div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=interkassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=interkassa</div></div>
                    
                 <?php break; 
                   case 'robokassa':?>
@@ -229,7 +229,7 @@ $GatewaysArrayList = [
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Indetificator')?></div><input name="shopid" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #1</div><input name="secret1" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #2</div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=robokassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=robokassa</div></div>
                    
                 <?php break; 
                  case 'freekassa':?>
@@ -237,14 +237,14 @@ $GatewaysArrayList = [
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Indetificator')?></div><input name="shopid" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #1</div><input name="secret1" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_Password')?> #2</div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=freekassa</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=freekassa</div></div>
                    
                 <?php break; 
                  case 'unitpay':?>
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_PublicKey')?></div><input name="secret1" ></div>
                     <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_SecretKey')?></div><input name="secret2" ></div>
-                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>lk/?gateway=unitpay</div></div>
+                    <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase('module_page_lk_impulse','_ResultUrl')?></div><div><?php echo $LK->https().get_url(2)?>?gateway=unitpay</div></div>
                 <?php break; 
                  case 'paypal':?>
                     <input type="hidden" name="gateway" value="<?php echo $_GET['gateway_add']?>">

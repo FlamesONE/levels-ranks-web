@@ -55,9 +55,8 @@ if(isset($_POST['db_check'])) {
 if( isset( $_POST['save_db'] ) ) {
     $dblk = ['lk' => [['HOST' => $_POST['host'], 'USER' => $_POST['user'], 'PASS' => $_POST['pass'], 'DB' => [['DB' => $_POST['db_1'], 'Prefix' => [['table' => $_POST['table'], 'mod' => $_POST['lk_mod']]]]]]]];
     $Config = file_get_contents( SESSIONS . '/db.php');
-    $ConfigReplace = str_replace("];", "", $Config);
-    $ConfigReplacePUT = substr(var_export_opt( $dblk, true ),1);
-    file_put_contents( SESSIONS . '/db.php', $ConfigReplace.$ConfigReplacePUT.";" );
+    $ConfigReplacePUT = var_export_opt( $dblk, true );
+    file_put_contents( SESSIONS . '/db.php', $Config.$ConfigReplacePUT.";" );
     header("Refresh:2");
 }
 
