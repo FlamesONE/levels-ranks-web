@@ -89,6 +89,7 @@ if( isset( $_POST['table_install'] ) ) {
     <title>Добро пожаловать в мастер установки LR!</title>
 </head>
 <link rel="stylesheet" href="<?php echo $General->arr_general['site'] ?>app/templates/<?php echo $General->arr_general['theme'] ?>/assets/css/style.css">
+<link rel="stylesheet" href="<?php echo $General->arr_general['site'] ?>storage/assets/css/style.css">
 <style>
     :root <?php echo str_replace( ',', ';', str_replace( '"', '', file_get_contents_fix ( 'app/templates/'.$General->arr_general['theme'].'/colors.json' ) ) )?>
 </style>

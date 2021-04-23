@@ -175,8 +175,6 @@
     max-width: 190px;
     max-height: 40px;
 }
-.right-area {
-}
 .right-area ul {
     padding-left: 20px;
 }
@@ -220,7 +218,6 @@
 
 .section .subsection {
     position: absolute;
-    right: 75px;
     top: 50px;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -502,7 +499,7 @@
     word-wrap: break-word;
 }
 .sidebar-right {
-    margin-top: 56px;
+    margin-top: 87px;
     top: 0;
     right: 0;
     height: 100%;
@@ -1053,7 +1050,6 @@ tr th a:hover .card_info_block{
 }
 .subsection.translation
 {
-    right: 7rem;
     width: min-content;
 }
 .sidebar-right {
