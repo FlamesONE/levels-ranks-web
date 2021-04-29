@@ -243,6 +243,51 @@ class Db {
     }
 
     /**
+     * Добавление или удаление мода в db.php
+     * 
+     * @since 0.2.2
+     * 
+     * $delete - ["DB_MOD" => "Номер базы, может их несколько", "USER_ID" => "Номер базы, обычно 0"] || ["delete" => "all"] - Чтобы снести всю базу
+     * 
+     * @return bool
+     */
+    public function change_db( $mod, $host, $user, $pass, $db_name, $table, $delete = 0, $params = null )
+    {
+        $db = $this->get_db_options();
+        if( !$db )
+            return false;
+
+        if( is_array( $delete ) )
+        {
+            if( !isset( $delete["delete"] ) && $delete["delete"] != "all" )
+            {
+                // Рядовые проверки, вдруг надо удалить конкретную базу
+                if( !empty( $delete["DB_MOD"] ) && empty( $delete["USER_ID"] ) )
+                    unset( $db[ $mod ][ $delete["DB_MOD"] ] );
+
+                // Удаление определенной таблицы
+                if( !empty( $delete["DB_MOD"] ) && !empty( $delete["USER_ID"] ) )
+                    unset( $db[ $mod ][ $delete["DB_MOD"] ][ $delete["USER_ID"] ] );
+            }
+            else
+            {
+                unset( $db[ $mod ] );
+            }
+        }
+        else
+        {
+            $params = ( !empty( $params ) ) ? ["table" => $table] + $params : ["table" => $table];
+            $query = ['HOST' => $host, 'USER' => $user, 'PASS' => $pass, 'DB' =>[0 =>['DB' => $db_name, 'Prefix' =>[0 =>$params]]]];
+            $db[ $mod ][] = $query;
+        }
+
+        if( file_put_contents( SESSIONS . 'db.php', '<?php return '.var_export_opt( $db, true ).";" ) )
+            return true;
+
+        return false;
+    }
+
+    /**
      * Подключение к определенному моду базы данных.
      *
      * @since 0.2

@@ -84,8 +84,9 @@
     </section>
 </aside>
 <!-- Tooltip Block -->
-<div class="tooltip-sidebar box-button-srv-0" style=""><?php echo $Translate->get_translate_phrase( $Auth->user_auth[0]['rank'], 'ranks_' . $Auth->server_info[ 0 ]['ranks_pack'] )?></div>
-<?php for ( $d = 1; $d < $Auth->user_rank_count; ++$d ):?>
+<?php if( isset( $Auth->user_auth ) ): ?>
+    <div class="tooltip-sidebar box-button-srv-0" style=""><?php echo $Translate->get_translate_phrase( $Auth->user_auth[0]['rank'], 'ranks_' . $Auth->server_info[ 0 ]['ranks_pack'] )?></div>
+<?php endif; for ( $d = 1; $d < $Auth->user_rank_count; ++$d ):?>
     <div class="tooltip-sidebar box-button-srv-treeview-<?php echo $d?>"><?php echo $Translate->get_translate_phrase( $Auth->user_auth[$d]['rank'], 'ranks_' . $Auth->server_info[ 0 ]['ranks_pack'] )?></div>
 <?php endfor;?>
 <div class="tooltip-sidebar box-button-home"><?php echo $Translate->get_translate_phrase('_Home')?></div>
