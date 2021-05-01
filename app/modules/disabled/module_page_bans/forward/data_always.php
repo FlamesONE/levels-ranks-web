@@ -1,5 +1,5 @@
 <?php // Работа со статусом игрока.
-if ( ! empty( $_GET['page'] ) && $_GET['page'] === 'profiles' && ! empty( $_GET['profile'] ) ):
+if ( ! empty( $Modules->route ) && $Modules->route === 'profiles' ):
     for ( $d = 0; $d < $General->server_list_count; $d++ ):
         if ( ! empty( $General->server_list[ $d ]['server_stats'] ) && $General->server_list[ $d ]['server_stats'] == sprintf('%s;%d;%d;%s', $Player->found[ $Player->server_group ]['DB_mod'], $Player->found[ $Player->server_group ]['USER_ID'], $Player->found[ $Player->server_group ]['DB'], $Player->found[ $Player->server_group ]['Table'] ) ):
             $stats = explode( ";", $General->server_list[ $d ]['server_sb'] );
