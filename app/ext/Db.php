@@ -9,6 +9,8 @@
  */
 
 namespace app\ext;
+
+use Exception;
 use pdo;
 
 class Db {
@@ -114,6 +116,9 @@ class Db {
         defined('IN_LR') != true && die();
 
         $this->db = $this->get_db_options();
+
+        //Проверка на iframe
+        (!empty($_GET['code']) && !empty($_GET['description'])) && exit(require PAGE_CUSTOM . '/error/index.php');
 
         // PDO Условия.
         $this->options = [
@@ -304,8 +309,14 @@ class Db {
 
         if($_Key !== false)
         {
-            // Создаём подключение по PDO для определенной базы данных.
-            $this->pdo[ $this->mod_name[ $_Key ] ][ $user_id ][ $db_id ] = new PDO( $this->dns[ $this->mod_name[ $_Key ] ][ $user_id ][ $db_id ], $this->db[ $this->mod_name[ $_Key ] ][ $user_id ]['USER'], $this->db[ $this->mod_name[ $_Key ] ][ $user_id ]['PASS'], $this->options );
+            try
+            {
+                $this->pdo[ $this->mod_name[ $_Key ] ][ $user_id ][ $db_id ] = new PDO( $this->dns[ $this->mod_name[ $_Key ] ][ $user_id ][ $db_id ], $this->db[ $this->mod_name[ $_Key ] ][ $user_id ]['USER'], $this->db[ $this->mod_name[ $_Key ] ][ $user_id ]['PASS'], $this->options );
+            } 
+            catch(Exception $e)
+            {
+                return get_iframe("500", "Couldn't connect to database <b>" . $this->mod_name[ $_Key ] . "</b>:  User: " . $user_id . " Db: " . $db_id);
+            }
             return true;
         }
         return false;
